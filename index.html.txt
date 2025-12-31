@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>舒眠寢具店 - 專屬你的深度睡眠</title>
+    <style>
+        body { font-family: "Microsoft JhengHei", sans-serif; margin: 0; background-color: #f9f9f9; color: #333; }
+        header { background: #fff; padding: 20px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); sticky: top; }
+        
+        /* 商品網格佈置 */
+        .container { display: flex; flex-wrap: wrap; justify-content: center; padding: 40px; gap: 30px; }
+        
+        /* 商品卡片：圖上文下 */
+        .product-card { background: #fff; width: 300px; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s; cursor: pointer; text-decoration: none; color: inherit; }
+        .product-card:hover { transform: translateY(-5px); }
+        
+        .product-image { width: 100%; height: 250px; background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; color: #888; overflow: hidden; }
+        .product-image img { width: 100%; height: 100%; object-fit: cover; }
+        
+        .product-info { padding: 20px; }
+        .price { color: #b89165; font-size: 1.2em; font-weight: bold; margin: 10px 0; }
+        .size-tag { font-size: 0.9em; color: #777; background: #eee; padding: 2px 8px; border-radius: 4px; }
+        
+        /* 按鈕樣式 */
+        .btn-buy { display: block; width: 100%; padding: 10px; background: #4a4a4a; color: white; text-align: center; border: none; border-radius: 5px; cursor: pointer; margin-top: 15px; }
+        .btn-buy:hover { background: #333; }
+
+        /* 簡單的彈出購物車模擬 */
+        #cart-msg { display: none; position: fixed; top: 20px; right: 20px; background: #28a745; color: white; padding: 15px 25px; border-radius: 5px; z-index: 1000; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🌙 舒眠寢具精選</h1>
+    <p>打造最舒適的居家時光</p>
+</header>
+
+<div id="cart-msg">✅ 已加入購物車！</div>
+
+<div class="container">
+    <div class="product-card">
+        <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=400" alt="寢具">
+        </div>
+        <div class="product-info">
+            <h3>60支天絲純色床包組</h3>
+            <span class="size-tag">標準雙人 / 加大</span>
+            <div class="price">NT$ 2,980</div>
+            <p>親膚涼感，細膩如絲的觸感，伴你一夜好眠。</p>
+            <button class="btn-buy" onclick="addToCart('60支天絲純色床包組')">加入購物車</button>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=400" alt="寢具">
+        </div>
+        <div class="product-info">
+            <h3>100% 水洗棉條紋系列</h3>
+            <span class="size-tag">單人 / 雙人</span>
+            <div class="price">NT$ 1,680</div>
+            <p>日系簡約風格，越洗越柔軟的純棉質感。</p>
+            <button class="btn-buy" onclick="addToCart('100% 水洗棉條紋系列')">加入購物車</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function addToCart(name) {
+        const msg = document.getElementById('cart-msg');
+        msg.innerText = '✅ ' + name + ' 已加入購物車！';
+        msg.style.display = 'block';
+        setTimeout(() => {
+            msg.style.display = 'none';
+            // 這裡模擬導向付款頁面
+            const confirmPay = confirm('已加入購物車，是否前往結帳付款？');
+            if(confirmPay) {
+                alert('即將轉向付款頁面 (支援 信用卡/LINE Pay)...');
+            }
+        }, 1000);
+    }
+</script>
+
+</body>
+</html>
